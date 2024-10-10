@@ -16,9 +16,8 @@
         }
         function getShirtById($id){
             $db = $this->Conection();
-            $query = $db->prepare('SELECT * FROM camiseta WHERE id_camiseta = :id');
-            $query->bindParam(':id', $id, PDO::PARAM_INT);
-            $query->execute();
+            $query = $db->prepare('SELECT * FROM camiseta WHERE id_camiseta = ?');
+            $query->execute([$id]);
             $shirt = $query->fetch(PDO::FETCH_OBJ);
             return $shirt;
         }

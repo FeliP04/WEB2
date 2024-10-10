@@ -36,7 +36,7 @@
             </thead>
                 <tbody>
                     <tr>
-                        <td><img src="<?php echo 'imgs/' . $shirt->imagen; ?>" alt="Imagen de la camiseta" width="100px" height="100px"></td>
+                        <td><img src="<?php echo 'imgs/' . $shirt->imagen; ?>" alt="Imagen de la camiseta" width="150px" height="150px"></td>
                         <td><?php echo "$team->nombre" ?></td>
                         <td><?php echo "$shirt->temporada" ?></td>
                         <td><?php echo "$shirt->tipo_camiseta" ?></td>
