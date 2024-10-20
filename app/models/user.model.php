@@ -1,11 +1,17 @@
 <?php
-class userModel{
-    function Conection(){
-        return new PDO('mysql:host=localhost;dbname=tpeweb;charset=utf8', 'root', '');
+require_once 'config.php';
+class userModel
+{
+    protected $db;
+    public function __construct()
+    {
+        $this->db = new PDO(
+            "mysql:host=" . MYSQL_HOST . ";dbname=" . MYSQL_DB . ";charset=utf8", MYSQL_USER, MYSQL_PASS
+        );
     }
-    function getUserByUsername($username){
-        $db = $this->Conection();
-        $query = $db->prepare('SELECT * FROM usuario WHERE user = ?');
+    function getUserByUsername($username)
+    {
+        $query = $this->db->prepare('SELECT * FROM usuario WHERE user = ?');
         $query->execute([$username]);
         $user = $query->fetch(PDO::FETCH_OBJ);
         return $user;

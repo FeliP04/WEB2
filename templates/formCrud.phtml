@@ -1,0 +1,32 @@
+<form action="add" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <input type="file" class="form-control" name="image">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Equipo</label>
+        <select name="id_team">
+            <?php foreach($teams as $team){
+                echo "<option value = '$team->id_equipo'> $team->nombre </option> ";
+            } ?>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Temporada</label>
+        <input htmlspecialchars type="number" name="season" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Tipo</label>
+        <select name="type">
+            <option value="Titular">Titular</option>
+            <option value="Suplente">Suplente</option>
+            <option value="Tercera">Tercera</option>
+            <option value="Entrenamiento">Entrenamiento</option>
+            <option value="Arquero">Arquero</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Precio</label>
+        <input htmlspecialchars type="number" name="price" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Agregar</button>
+</form>

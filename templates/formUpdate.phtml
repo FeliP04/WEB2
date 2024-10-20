@@ -1,0 +1,37 @@
+<?php require_once 'templates/layouts/header.phtml'; ?>
+<form action="update" class="row g-3" method="post" enctype="multipart/form-data"> 
+    <input type="hidden" name="id" value=<?php echo $id ?>>
+    <div class="mb-3">
+        <label class="form-label">Imagen</label>
+        <input type="file" class="form-control" name="image">
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Equipo</label>
+        <select class="form-select" name="id_team">
+            <?php foreach ($teams as $team) {
+                echo "<option value = $team->id_equipo> $team->nombre </option> ";
+            } ?>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label class="form-label">Temporada</label>
+        <input type="number" class="form-control" name="season">
+    </div>
+    <div class="col-12">
+        <label class="form-label">Tipo de camiseta</label>
+        <select name="type" class="form-select">
+            <option value="Titular">Titular</option>
+            <option value="Suplente">Suplente</option>
+            <option value="Tercera">Tercera</option>
+            <option value="Entrenamiento">Entrenamiento</option>
+            <option value="Arquero">Arquero</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label class="form-label">Precio</label>
+        <input type="number" class="form-control" name="price">
+    </div>      
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Modificar</button>
+    </div>
+</form>
